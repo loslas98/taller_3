@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 public class Computador {
     String marca;
@@ -13,7 +14,6 @@ public class Computador {
 
     public void menu(){
         System.out.println("Bienvenido a su computador");
-        System.out.println("Elija una opcion: ");
         System.out.println("1. Mostrar datos");
         System.out.println("2. Editar datos");
         System.out.println("3. Salir");
@@ -35,6 +35,9 @@ public class Computador {
                     if(salir()){
                         break out;
                     }
+                    break;
+                default:
+                    System.out.println("Elija una opcion correcta");
                     break;
 
             }
@@ -58,12 +61,12 @@ public class Computador {
     public void editardatos(){
         Scanner teclado = new Scanner(System.in);
         System.out.println("Escriba el nombre de la nueva marca: ");
-        setMarca(teclado.next());
+        setMarca(teclado.nextLine());
         System.out.println("Escriba el nombre del nuevo modelo: ");
-        setModelo(teclado.next());
+        setModelo(teclado.nextLine());
         System.out.println("Escriba los datos de la nueva RAM");
         System.out.println("Escriba la marca: ");
-        memoria.setMarca(teclado.next());
+        memoria.setMarca(teclado.nextLine());
         System.out.println("Escriba la capacidad(en GB): ");
         memoria.setCapacidad(teclado.nextInt());
         System.out.println("Escriba la frecuencia(en MHZ): ");
@@ -84,6 +87,17 @@ public class Computador {
                 System.out.println("Elija una opcion correcta");
                 return false;
         }
+    }
+    public int verificarNumero(){
+        try{
+            int opcion = elegirOpcion();
+            return opcion;
+        }catch (InputMismatchException e){
+            System.out.println("Por favor ingrese un numero");
+            return 0;
+
+        }
+
     }
 
 
