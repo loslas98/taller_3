@@ -10,6 +10,7 @@ public class Computador {
         this.marca = marca;
         this.modelo = modelo;
         this.memoria = memoria;
+        inicializar();
     }
 
     public Computador() {
