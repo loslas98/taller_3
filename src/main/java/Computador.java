@@ -12,6 +12,9 @@ public class Computador {
         this.memoria = memoria;
     }
 
+    public Computador() {
+    }
+
     public void menu(){
         System.out.println("Bienvenido a su computador");
         System.out.println("1. Mostrar datos");
