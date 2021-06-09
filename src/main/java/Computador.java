@@ -68,9 +68,9 @@ public class Computador {
         System.out.println("Escriba la marca: ");
         memoria.setMarca(teclado.nextLine());
         System.out.println("Escriba la capacidad(en GB): ");
-        memoria.setCapacidad(teclado.nextInt());
+        memoria.setCapacidad(verificarNumero());
         System.out.println("Escriba la frecuencia(en MHZ): ");
-        memoria.setFrecuencia(teclado.nextInt());
+        memoria.setFrecuencia(verificarNumero());
         System.out.println("Los datos se han editado exitosamente");
 
     }
@@ -89,14 +89,26 @@ public class Computador {
         }
     }
     public int verificarNumero(){
-        try{
-            int opcion = elegirOpcion();
-            return opcion;
-        }catch (InputMismatchException e){
-            System.out.println("Por favor ingrese un numero");
-            return 0;
+        int i = 0;
+        while (i==0){
+            try{
+                int opcion = ingresarNumeros();
+                return opcion;
+
+            }catch (InputMismatchException e){
+                System.out.println("Por favor ingrese un numero");
+
+
+            }
 
         }
+
+        return 0;
+    }
+
+    public int ingresarNumeros(){
+        Scanner teclado = new Scanner(System.in);
+        return teclado.nextInt();
 
     }
 
